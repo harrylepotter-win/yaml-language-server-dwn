@@ -733,7 +733,8 @@ export class YAMLCompletion extends JSONCompletion {
       return { insertText, insertIndex };
     }
 
-    Object.keys(schema.properties).forEach((key: string) => {
+    const iterator = schema.propertyOrder !== undefined ? schema.propertyOrder : Object.keys(schema.properties);
+    iterator.forEach((key: string) => {
       const propertySchema = schema.properties[key] as JSONSchema;
       let type = Array.isArray(propertySchema.type) ? propertySchema.type[0] : propertySchema.type;
       if (!type) {

@@ -19,6 +19,7 @@ export interface JSONSchema {
   definitions?: { [name: string]: JSONSchema };
   description?: string;
   properties?: JSONSchemaMap;
+  propertyOrder?: string[];
   patternProperties?: JSONSchemaMap;
   additionalProperties?: boolean | JSONSchemaRef;
   minProperties?: number;
